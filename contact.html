@@ -1,0 +1,129 @@
+
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact — Pinnacle Properties</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0f1e;color:#e8e8e8;font-family:'Inter',sans-serif;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+.gold{color:#c9a84c;}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,30,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;letter-spacing:1px;line-height:1.2;flex-shrink:0;}
+.nav-logo span{color:#c9a84c;}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;color:#aaa;transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover{color:#c9a84c;}
+.btn-nav{background:#c9a84c;color:#0a0f1e!important;padding:8px 16px;border-radius:3px;font-weight:600;font-size:0.78rem;letter-spacing:1px;white-space:nowrap;}
+.btn-nav:hover{background:#e0b84d!important;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#e8e8e8;border-radius:2px;transition:all 0.3s;}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,15,30,0.98);border-bottom:1px solid rgba(201,168,76,0.2);padding:16px 24px 24px;z-index:99;flex-direction:column;gap:4px;}
+.nav-mobile a{display:block;padding:12px 0;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase;color:#aaa;border-bottom:1px solid rgba(255,255,255,0.05);}
+.nav-mobile a:last-child{border-bottom:none;}
+.nav-mobile a:hover,.nav-mobile a:active{color:#c9a84c;}
+.nav-mobile .btn-nav-mobile{display:block;margin-top:12px;background:#c9a84c;color:#0a0f1e;text-align:center;padding:13px;border-radius:3px;font-weight:700;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  .nav-mobile.open{display:flex;}
+  .nav{padding:0 16px;}
+}
+.btn-gold{background:#c9a84c;color:#0a0f1e;padding:14px 32px;border-radius:3px;font-weight:600;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;display:inline-block;transition:background 0.2s;}
+.btn-gold:hover{background:#e0b84d;}
+.btn-outline{background:transparent;color:#e8e8e8;padding:14px 32px;border-radius:3px;font-weight:600;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.4);cursor:pointer;display:inline-block;transition:all 0.2s;}
+.btn-outline:hover{border-color:#c9a84c;color:#c9a84c;}
+.page-wrap{padding-top:70px;}
+.section{padding:80px 40px;max-width:1200px;margin:0 auto;}
+.section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:12px;}
+.section-sub{color:#aaa;font-size:1rem;margin-bottom:50px;}
+.divider{width:60px;height:3px;background:#c9a84c;margin:16px 0 40px;}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:30px;}
+.footer{border-top:1px solid rgba(201,168,76,0.15);padding:30px 40px;text-align:center;color:#555;font-size:0.85rem;margin-top:80px;}
+
+.contact-hero{background:linear-gradient(180deg,rgba(201,168,76,0.06) 0%,transparent 100%);padding:80px 40px 40px;text-align:center;border-bottom:1px solid rgba(201,168,76,0.1);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
+@media(max-width:768px){.contact-grid{grid-template-columns:1fr;gap:30px;}.contact-hero{padding:60px 20px 30px;}.section{padding:60px 20px;}}
+.form-group{margin-bottom:20px;}
+.form-group label{display:block;color:#aaa;font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;margin-bottom:8px;}
+.form-group input,.form-group textarea,.form-group select{width:100%;background:rgba(255,255,255,0.05);border:1px solid rgba(201,168,76,0.2);border-radius:4px;padding:12px 16px;color:#e8e8e8;font-size:0.95rem;font-family:inherit;outline:none;transition:border-color 0.2s;}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{border-color:#c9a84c;}
+.form-group textarea{resize:vertical;min-height:120px;}
+.contact-info{padding:40px;background:rgba(201,168,76,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:10px;}
+.info-item{display:flex;gap:16px;margin-bottom:28px;}
+.info-icon{font-size:1.5rem;margin-top:2px;}
+.info-label{font-size:0.75rem;color:#888;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.info-val{color:#e8e8e8;font-size:0.95rem;}
+</style></head><body>
+
+<nav class="nav">
+  <a href="/index.html" class="nav-logo"><span>DC Pinnacle</span> Properties</a>
+  <div class="nav-links">
+    <a href="/properties.html">Properties</a>
+    <a href="/services.html">Services</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/login.html" class="btn-nav">Log In</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="mobileMenu">
+  <a href="/properties.html">Properties</a>
+  <a href="/services.html">Services</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/login.html">Log In</a>
+</div>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('mobileMenu');
+  var btn=document.querySelector('.nav-hamburger');
+  if(menu && btn && !menu.contains(e.target) && !btn.contains(e.target)){
+    menu.classList.remove('open');
+  }
+});
+</script>
+
+<div class="page-wrap">
+  <div class="contact-hero">
+    <p style="color:#c9a84c;letter-spacing:3px;font-size:0.8rem;text-transform:uppercase;margin-bottom:12px;">Get In Touch</p>
+    <h1 class="section-title">Let's Talk About Your Property</h1>
+    <div class="divider" style="margin:16px auto;"></div>
+    <p style="color:#888;max-width:500px;margin:0 auto;">Ready to turn your property into a performing asset? We'll get back to you within 24 hours.</p>
+  </div>
+  <div class="section">
+    <div class="contact-grid">
+      <div>
+        <form>
+          <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your name"></div>
+          <div class="form-group"><label>Email</label><input type="email" placeholder="you@example.com"></div>
+          <div class="form-group"><label>Phone</label><input type="tel" placeholder="+1 (202) 000-0000"></div>
+          <div class="form-group"><label>Property Type</label>
+            <select><option>Select...</option><option>Condo</option><option>Townhouse</option><option>Single Family</option><option>Multi-unit</option></select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea placeholder="Tell us about your property and goals..."></textarea></div>
+          <button type="submit" class="btn-gold" style="width:100%;justify-content:center;">Send Message</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div style="font-family:'Playfair Display',serif;font-size:1.4rem;margin-bottom:28px;">Get In Touch</div>
+        <div class="info-item"><div class="info-icon">📍</div><div><div class="info-label">Office</div><div class="info-val">Available Nationwide</div></div></div>
+        <div class="info-item"><div class="info-icon">📞</div><div><div class="info-label">Phone</div><div class="info-val">(800) 555-0190</div></div></div>
+        <div class="info-item"><div class="info-icon">✉️</div><div><div class="info-label">Email</div><div class="info-val">hello@pinnacleproperties.com</div></div></div>
+        <div class="info-item"><div class="info-icon">🕐</div><div><div class="info-label">Hours</div><div class="info-val">Mon–Fri 9am–6pm ET<br>Sat 10am–4pm ET</div></div></div>
+        <div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(201,168,76,0.15);">
+          <div style="color:#c9a84c;font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;">Response Time</div>
+          <div style="color:#aaa;font-size:0.9rem;">We respond to all inquiries within 24 hours. For urgent matters, call directly.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">© 2026 Pinnacle Properties DC · All Rights Reserved</div>
+</body></html>

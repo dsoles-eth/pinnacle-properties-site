@@ -1,0 +1,130 @@
+
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>About — DC Pinnacle Properties</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0f1e;color:#e8e8e8;font-family:'Inter',sans-serif;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+.gold{color:#c9a84c;}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,30,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;letter-spacing:1px;line-height:1.2;flex-shrink:0;}
+.nav-logo span{color:#c9a84c;}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;color:#aaa;transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover{color:#c9a84c;}
+.btn-nav{background:#c9a84c;color:#0a0f1e!important;padding:8px 16px;border-radius:3px;font-weight:600;font-size:0.78rem;letter-spacing:1px;white-space:nowrap;}
+.btn-nav:hover{background:#e0b84d!important;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#e8e8e8;border-radius:2px;transition:all 0.3s;}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,15,30,0.98);border-bottom:1px solid rgba(201,168,76,0.2);padding:16px 24px 24px;z-index:99;flex-direction:column;gap:4px;}
+.nav-mobile a{display:block;padding:12px 0;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase;color:#aaa;border-bottom:1px solid rgba(255,255,255,0.05);}
+.nav-mobile a:last-child{border-bottom:none;}
+.nav-mobile a:hover,.nav-mobile a:active{color:#c9a84c;}
+.nav-mobile .btn-nav-mobile{display:block;margin-top:12px;background:#c9a84c;color:#0a0f1e;text-align:center;padding:13px;border-radius:3px;font-weight:700;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  .nav-mobile.open{display:flex;}
+  .nav{padding:0 16px;}
+}
+.btn-gold{background:#c9a84c;color:#0a0f1e;padding:14px 32px;border-radius:3px;font-weight:600;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;display:inline-block;transition:background 0.2s;}
+.btn-gold:hover{background:#e0b84d;}
+.btn-outline{background:transparent;color:#e8e8e8;padding:14px 32px;border-radius:3px;font-weight:600;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.4);cursor:pointer;display:inline-block;transition:all 0.2s;}
+.btn-outline:hover{border-color:#c9a84c;color:#c9a84c;}
+.page-wrap{padding-top:70px;}
+.section{padding:80px 40px;max-width:1200px;margin:0 auto;}
+.section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:12px;}
+.section-sub{color:#aaa;font-size:1rem;margin-bottom:50px;}
+.divider{width:60px;height:3px;background:#c9a84c;margin:16px 0 40px;}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:30px;}
+.footer{border-top:1px solid rgba(201,168,76,0.15);padding:30px 40px;text-align:center;color:#555;font-size:0.85rem;margin-top:80px;}
+
+.about-hero{background:linear-gradient(180deg,rgba(201,168,76,0.06) 0%,transparent 100%);padding:80px 40px 40px;text-align:center;border-bottom:1px solid rgba(201,168,76,0.1);}
+.about-body{max-width:780px;margin:0 auto;}
+.about-body p{color:#aaa;line-height:1.9;font-size:1rem;margin-bottom:22px;text-align:center;}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:50px 0;}
+.about-photos img{width:100%;height:280px;object-fit:cover;border-radius:10px;}
+.about-values{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:50px;}
+.about-value{background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.12);border-radius:10px;padding:28px;text-align:center;}
+.about-value-title{color:#c9a84c;font-weight:700;font-size:0.95rem;margin-bottom:10px;letter-spacing:0.5px;}
+.about-value-desc{color:#aaa;font-size:0.9rem;line-height:1.7;}
+@media(max-width:768px){.about-hero{padding:60px 20px 30px;}.section{padding:60px 20px;}.about-photos{grid-template-columns:1fr;}.about-values{grid-template-columns:1fr;gap:16px;}}
+</style>
+</head><body>
+
+<nav class="nav">
+  <a href="/index.html" class="nav-logo"><span>DC Pinnacle</span> Properties</a>
+  <div class="nav-links">
+    <a href="/properties.html">Properties</a>
+    <a href="/services.html">Services</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/login.html" class="btn-nav">Log In</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="mobileMenu">
+  <a href="/properties.html">Properties</a>
+  <a href="/services.html">Services</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/login.html">Log In</a>
+</div>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('mobileMenu');
+  var btn=document.querySelector('.nav-hamburger');
+  if(menu && btn && !menu.contains(e.target) && !btn.contains(e.target)){
+    menu.classList.remove('open');
+  }
+});
+</script>
+
+<div class="page-wrap">
+  <div class="about-hero">
+    <p style="color:#c9a84c;letter-spacing:3px;font-size:0.8rem;text-transform:uppercase;margin-bottom:12px;">Our Story</p>
+    <h1 class="section-title">About DC Pinnacle Properties</h1>
+    <div class="divider" style="margin:16px auto 0;"></div>
+  </div>
+  <div class="section">
+    <div class="about-body">
+      <p>At Pinnacle Properties, we specialize in helping property owners unlock the full potential of their investments. Our mission is to provide hands-off, stress-free property management that delivers consistent returns while keeping your spaces impeccably maintained and tenant-ready.</p>
+      <p>By combining reliability, responsive service, and design excellence, we transform properties into high-performing assets that attract quality tenants and maximize long-term value. Our portfolio includes a diverse range of residences, each showcasing our commitment to detail, functionality, and owner satisfaction.</p>
+      <p>Whether you own a single property or a growing portfolio, we offer the expertise, systems, and personalized service to ensure your investments thrive.</p>
+      <p>Partner with us and see why property owners trust Pinnacle Properties to set the standard in professional property management.</p>
+    </div>
+    <div class="about-photos">
+      <img src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/876c80ed-99df-422a-a51e-ce05e03a1bd6.jpeg?im_w=1200" alt="Property interior" loading="lazy">
+      <img src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/4c20d1a9-279d-4fae-ab87-1152349d2ff0.jpeg?im_w=1200" alt="Property living area" loading="lazy">
+      <img src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/12b8d1e2-1dfe-4b63-b008-14770a24811d.jpeg?im_w=1200" alt="Property bedroom" loading="lazy">
+      <img src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/409ff230-dabc-4c34-97ee-25ff04d8a69c.jpeg?im_w=1200" alt="Property kitchen" loading="lazy">
+    </div>
+    <div class="about-values">
+      <div class="about-value">
+        <div class="about-value-title">Reliability</div>
+        <div class="about-value-desc">Consistent, on-time income you can count on — every single month, without exception.</div>
+      </div>
+      <div class="about-value">
+        <div class="about-value-title">Responsive Service</div>
+        <div class="about-value-desc">From guest inquiries to maintenance requests, we move fast so you never have to worry.</div>
+      </div>
+      <div class="about-value">
+        <div class="about-value-title">Design Excellence</div>
+        <div class="about-value-desc">Every space is curated to attract quality guests and reflect the premium standard our owners expect.</div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:60px;">
+      <a href="/contact.html" class="btn-gold">Partner With Us</a>
+    </div>
+  </div>
+</div>
+<div class="footer">&copy; 2026 Pinnacle Properties DC &middot; All Rights Reserved</div>
+</body></html>

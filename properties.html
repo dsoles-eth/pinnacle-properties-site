@@ -1,0 +1,241 @@
+
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Properties — Pinnacle Properties</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#0a0f1e;color:#e8e8e8;font-family:'Inter',sans-serif;min-height:100vh;}
+a{text-decoration:none;color:inherit;}
+.gold{color:#c9a84c;}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,15,30,0.97);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.2);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;letter-spacing:1px;line-height:1.2;flex-shrink:0;}
+.nav-logo span{color:#c9a84c;}
+.nav-links{display:flex;gap:24px;align-items:center;}
+.nav-links a{font-size:0.8rem;letter-spacing:1px;text-transform:uppercase;color:#aaa;transition:color 0.2s;white-space:nowrap;}
+.nav-links a:hover{color:#c9a84c;}
+.btn-nav{background:#c9a84c;color:#0a0f1e!important;padding:8px 16px;border-radius:3px;font-weight:600;font-size:0.78rem;letter-spacing:1px;white-space:nowrap;}
+.btn-nav:hover{background:#e0b84d!important;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:#e8e8e8;border-radius:2px;transition:all 0.3s;}
+.nav-mobile{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,15,30,0.98);border-bottom:1px solid rgba(201,168,76,0.2);padding:16px 24px 24px;z-index:99;flex-direction:column;gap:4px;}
+.nav-mobile a{display:block;padding:12px 0;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase;color:#aaa;border-bottom:1px solid rgba(255,255,255,0.05);}
+.nav-mobile a:last-child{border-bottom:none;}
+.nav-mobile a:hover,.nav-mobile a:active{color:#c9a84c;}
+.nav-mobile .btn-nav-mobile{display:block;margin-top:12px;background:#c9a84c;color:#0a0f1e;text-align:center;padding:13px;border-radius:3px;font-weight:700;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;}
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .nav-hamburger{display:flex;}
+  .nav-mobile.open{display:flex;}
+  .nav{padding:0 16px;}
+}
+.btn-gold{background:#c9a84c;color:#0a0f1e;padding:14px 32px;border-radius:3px;font-weight:600;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;border:none;cursor:pointer;display:inline-block;transition:background 0.2s;}
+.btn-gold:hover{background:#e0b84d;}
+.btn-outline{background:transparent;color:#e8e8e8;padding:14px 32px;border-radius:3px;font-weight:600;font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(255,255,255,0.4);cursor:pointer;display:inline-block;transition:all 0.2s;}
+.btn-outline:hover{border-color:#c9a84c;color:#c9a84c;}
+.page-wrap{padding-top:70px;}
+.section{padding:80px 40px;max-width:1200px;margin:0 auto;}
+.section-title{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;margin-bottom:12px;}
+.section-sub{color:#aaa;font-size:1rem;margin-bottom:50px;}
+.divider{width:60px;height:3px;background:#c9a84c;margin:16px 0 40px;}
+.card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.15);border-radius:8px;padding:30px;}
+.footer{border-top:1px solid rgba(201,168,76,0.15);padding:30px 40px;text-align:center;color:#555;font-size:0.85rem;margin-top:80px;}
+
+.props-hero{background:linear-gradient(180deg,rgba(201,168,76,0.06) 0%,transparent 100%);padding:80px 40px 40px;text-align:center;border-bottom:1px solid rgba(201,168,76,0.1);}
+
+/* Single property hero layout */
+.prop-hero-wrap{display:grid;grid-template-columns:1fr 420px;gap:50px;align-items:start;margin-top:20px;}
+.photo-gallery{position:relative;}
+.gallery-main{width:100%;height:420px;object-fit:cover;border-radius:12px;cursor:pointer;transition:opacity 0.3s;}
+.gallery-thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px;}
+.gallery-thumb{width:100%;aspect-ratio:1;object-fit:cover;border-radius:6px;cursor:pointer;opacity:0.7;transition:opacity 0.2s;border:2px solid transparent;}
+.gallery-thumb:hover,.gallery-thumb.active{opacity:1;border-color:#c9a84c;}
+.gallery-count{position:absolute;bottom:16px;right:16px;background:rgba(0,0,0,0.7);color:#fff;font-size:0.8rem;padding:6px 12px;border-radius:20px;backdrop-filter:blur(4px);}
+
+.prop-details{padding:10px 0;}
+.prop-badge{display:inline-block;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:#c9a84c;font-size:0.72rem;letter-spacing:2px;padding:5px 14px;border-radius:20px;text-transform:uppercase;margin-bottom:16px;}
+.prop-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;line-height:1.2;margin-bottom:8px;}
+.prop-location{color:#888;font-size:0.95rem;margin-bottom:20px;display:flex;align-items:center;gap:6px;}
+.prop-meta-row{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid rgba(201,168,76,0.1);}
+.prop-meta-item{text-align:center;}
+.prop-meta-val{font-size:1.1rem;font-weight:600;color:#e8e8e8;}
+.prop-meta-lbl{font-size:0.72rem;color:#888;text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;}
+.prop-amenities{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:24px;}
+.amenity{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:6px;padding:6px 14px;font-size:0.82rem;color:#ccc;}
+.prop-desc{color:#aaa;font-size:0.9rem;line-height:1.7;margin-bottom:28px;}
+.reviews-row{display:flex;gap:20px;margin-bottom:28px;}
+.review-card{flex:1;background:rgba(255,255,255,0.03);border:1px solid rgba(201,168,76,0.1);border-radius:8px;padding:16px;}
+.review-stars{color:#c9a84c;font-size:0.85rem;margin-bottom:6px;}
+.review-text{color:#aaa;font-size:0.82rem;line-height:1.5;margin-bottom:8px;font-style:italic;}
+.review-author{color:#666;font-size:0.75rem;}
+.cta-block{background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.2);border-radius:10px;padding:24px;text-align:center;}
+.cta-price{font-family:'Playfair Display',serif;font-size:1.8rem;color:#c9a84c;margin-bottom:4px;}
+.cta-sub{color:#888;font-size:0.85rem;margin-bottom:18px;}
+
+/* Coming soon card */
+.coming-soon-card{background:rgba(255,255,255,0.02);border:2px dashed rgba(201,168,76,0.2);border-radius:12px;padding:50px 30px;text-align:center;margin-top:60px;}
+.coming-soon-icon{font-size:3rem;margin-bottom:16px;}
+.coming-soon-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:#c9a84c;margin-bottom:10px;}
+.coming-soon-sub{color:#666;font-size:0.9rem;}
+
+@media(max-width:900px){
+  .prop-hero-wrap{grid-template-columns:1fr;}
+  .gallery-main{height:280px;}
+  .reviews-row{flex-direction:column;}
+}
+</style></head><body>
+
+<nav class="nav">
+  <a href="/index.html" class="nav-logo"><span>DC Pinnacle</span> Properties</a>
+  <div class="nav-links">
+    <a href="/properties.html">Properties</a>
+    <a href="/services.html">Services</a>
+    <a href="/about.html">About</a>
+    <a href="/contact.html">Contact</a>
+    <a href="/login.html" class="btn-nav">Log In</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile" id="mobileMenu">
+  <a href="/properties.html">Properties</a>
+  <a href="/services.html">Services</a>
+  <a href="/about.html">About</a>
+  <a href="/contact.html">Contact</a>
+  <a href="/login.html">Log In</a>
+</div>
+<script>
+function toggleMenu(){
+  var m=document.getElementById('mobileMenu');
+  m.classList.toggle('open');
+}
+document.addEventListener('click',function(e){
+  var menu=document.getElementById('mobileMenu');
+  var btn=document.querySelector('.nav-hamburger');
+  if(menu && btn && !menu.contains(e.target) && !btn.contains(e.target)){
+    menu.classList.remove('open');
+  }
+});
+</script>
+
+<div class="page-wrap">
+  <div class="props-hero">
+    <p style="color:#c9a84c;letter-spacing:3px;font-size:0.8rem;text-transform:uppercase;margin-bottom:12px;">Our Portfolio</p>
+    <h1 class="section-title">Our Properties</h1>
+    <div class="divider" style="margin:16px auto;"></div>
+    <p style="color:#888;max-width:500px;margin:0 auto;">Professionally managed short-term rentals delivering 5-star guest experiences and maximum owner returns.</p>
+  </div>
+
+  <div class="section">
+
+    <!-- PROPERTY 1: St. Augustine Cottage -->
+    <div class="prop-hero-wrap">
+      <!-- Photo Gallery -->
+      <div class="photo-gallery">
+        <img class="gallery-main" id="mainPhoto" src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/0d41ac7c-59ad-4407-99ba-e1536c0c4569.jpeg?im_w=1200" alt="Traveler's Dream Oasis">
+        <div class="gallery-count" id="photoCount">1 / 17</div>
+        <div class="gallery-thumbs">
+          <img class="gallery-thumb active" src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/0d41ac7c-59ad-4407-99ba-e1536c0c4569.jpeg?im_w=720" onclick="setPhoto(0,this)">
+          <img class="gallery-thumb" src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/876c80ed-99df-422a-a51e-ce05e03a1bd6.jpeg?im_w=720" onclick="setPhoto(1,this)">
+          <img class="gallery-thumb" src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/4c20d1a9-279d-4fae-ab87-1152349d2ff0.jpeg?im_w=720" onclick="setPhoto(2,this)">
+          <img class="gallery-thumb" src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/12b8d1e2-1dfe-4b63-b008-14770a24811d.jpeg?im_w=720" onclick="setPhoto(3,this)">
+          <img class="gallery-thumb" src="/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/409ff230-dabc-4c34-97ee-25ff04d8a69c.jpeg?im_w=720" onclick="setPhoto(4,this)">
+        </div>
+      </div>
+
+      <!-- Property Details -->
+      <div class="prop-details">
+        <div class="prop-badge">Entire Cottage · Available Now</div>
+        <h2 class="prop-title">Traveler's Dream Oasis in Historic District</h2>
+        <div class="prop-location">📍 St. Augustine, Florida</div>
+
+        <div class="prop-meta-row">
+          <div class="prop-meta-item"><div class="prop-meta-val">4</div><div class="prop-meta-lbl">Guests</div></div>
+          <div class="prop-meta-item"><div class="prop-meta-val">1</div><div class="prop-meta-lbl">Bedroom</div></div>
+          <div class="prop-meta-item"><div class="prop-meta-val">2</div><div class="prop-meta-lbl">Beds</div></div>
+          <div class="prop-meta-item"><div class="prop-meta-val">1</div><div class="prop-meta-lbl">Bath</div></div>
+          <div class="prop-meta-item"><div class="prop-meta-val">⭐ 5.0</div><div class="prop-meta-lbl">Rating</div></div>
+        </div>
+
+        <div class="prop-amenities">
+          <span class="amenity">🏖 Beach Access</span>
+          <span class="amenity">🍳 Full Kitchen</span>
+          <span class="amenity">📶 Fast WiFi</span>
+          <span class="amenity">🚗 Free Parking</span>
+          <span class="amenity">💻 Workspace</span>
+          <span class="amenity">🔑 Self Check-in</span>
+          <span class="amenity">🧺 Washer & Dryer</span>
+          <span class="amenity">❄️ Central AC</span>
+        </div>
+
+        <p class="prop-desc">Private 1BR/1BA cottage in the heart of Uptown St. Augustine. A beautifully restored early 20th-century home blending historic charm with modern comfort — king bed, queen sleeper sofa, hardwood floors, high ceilings, and a welcoming front porch. 10-minute walk to the Historic District, Castillo de San Marcos, and Flagler College. 8 minutes to Vilano Beach.</p>
+
+        <div class="reviews-row">
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <div class="review-text">"Dan and Gillian were great hosts! Their place was beautiful, very clean and comfortable! Little snacks and coffee readily available — a nice surprise! Will definitely stay again."</div>
+            <div class="review-author">— Chelsea, Tampa FL</div>
+          </div>
+          <div class="review-card">
+            <div class="review-stars">⭐⭐⭐⭐⭐</div>
+            <div class="review-text">"Highly recommend this home away from home! Owners are very responsive, detailed and professional. The owners thought of every little detail vacationers may need."</div>
+            <div class="review-author">— Jenelle, Boston MA</div>
+          </div>
+        </div>
+
+        <div class="cta-block">
+          <div class="cta-price">Check Airbnb for Pricing</div>
+          <div class="cta-sub">Rates vary by date — see live availability</div>
+          <a href="https://www.airbnb.com/rooms/1639455299491822317" target="_blank" class="btn-gold" style="display:inline-block;">Book on Airbnb →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMING SOON: Property 2 -->
+    <div class="coming-soon-card">
+      <div class="coming-soon-icon">🏠</div>
+      <div class="coming-soon-title">Property #2 — Coming Soon</div>
+      <div class="coming-soon-sub">We're actively scouting our next acquisition. Check back soon.</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const photos = [
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/0d41ac7c-59ad-4407-99ba-e1536c0c4569.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/876c80ed-99df-422a-a51e-ce05e03a1bd6.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/4c20d1a9-279d-4fae-ab87-1152349d2ff0.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/12b8d1e2-1dfe-4b63-b008-14770a24811d.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/409ff230-dabc-4c34-97ee-25ff04d8a69c.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/6f1036fa-7eeb-4a9c-8c72-676fe6307cc4.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/a0669768-9912-4774-9a4a-d054cce42331.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/f86f8087-8619-4929-b272-33bf49ea14a2.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/8a5dcd47-bfe9-4634-a75a-7e05ed01f531.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/40438e70-a5bf-4f5f-a451-bb2d9b8404f1.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/6caf3498-946b-4203-b410-155aa89d4061.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/b792c3e8-f4e0-43c5-9dfa-0bcd078542c9.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/a4866372-958b-45a6-a150-900c7adcb536.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/efc40ef5-e995-4968-a61e-1cafdd953209.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/e8eca5ad-d771-4bca-8ecf-d49914ac1463.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/8630ac46-5d16-4348-bbd8-a2097d050ce6.jpeg?im_w=1200",
+  "/img-proxy?url=https://a0.muscache.com/im/pictures/hosting/Hosting-1639455299491822317/original/f2039182-1eb7-46d8-84d9-bf69c1606428.jpeg?im_w=1200",
+];
+let currentIdx = 0;
+function setPhoto(idx, thumb) {
+  currentIdx = idx;
+  document.getElementById('mainPhoto').src = photos[idx];
+  document.getElementById('photoCount').textContent = (idx+1) + ' / ' + photos.length;
+  document.querySelectorAll('.gallery-thumb').forEach(t => t.classList.remove('active'));
+  if(thumb) thumb.classList.add('active');
+}
+document.getElementById('mainPhoto').addEventListener('click', function() {
+  currentIdx = (currentIdx + 1) % photos.length;
+  const thumbs = document.querySelectorAll('.gallery-thumb');
+  setPhoto(currentIdx, thumbs[currentIdx < 5 ? currentIdx : null]);
+});
+</script>
+
+<div class="footer">© 2026 Pinnacle Properties · All Rights Reserved</div>
+</body></html>
